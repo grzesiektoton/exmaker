@@ -1,1 +1,16 @@
 <p>This is the partial for questions view.</p>
+<div ng-controller="QuestionCtrl as questionCtrl">
+    <ol>
+        <li ng-repeat="question in questionCtrl.questions">
+          <span editable-textarea="question.content">{{question.content}}</span>
+            <ol type="a">
+                <li ng-repeat="answer in question.answers">
+                    <input type="checkbox" name="name" ng-model="answer.correct"/>
+                    <label editable-text="answer.content">{{answer.content}}</label>
+                </li>
+            </ol>
+            <button ng-click="questionCtrl.addAnswer(question)">Add answer</button>
+        </li>
+    </ol>
+    <button ng-click="questionCtrl.addQuestion()">Add question</button>
+</div>
