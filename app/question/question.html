@@ -5,12 +5,31 @@
           <span editable-textarea="question.content">{{question.content}}</span>
             <ol type="a">
                 <li ng-repeat="answer in question.answers">
+                    <span ng-click="questionCtrl.moveUpAnswer(question, $index)"
+                          class="glyphicon glyphicon-arrow-up"
+                          aria-hidden="true">
+                    </span>
+                    <span ng-click="questionCtrl.moveDownAnswer(question, $index)"
+                          class="glyphicon glyphicon-arrow-down"
+                          aria-hidden="true">
+                    </span>
+                    <span ng-click="questionCtrl.removeAnswer(question, $index)"
+                          class="glyphicon glyphicon-remove"
+                          aria-hidden="true">
+                    </span>
                     <input type="checkbox" name="name" ng-model="answer.correct"/>
                     <label editable-text="answer.content">{{answer.content}}</label>
                 </li>
             </ol>
-            <button ng-click="questionCtrl.addAnswer(question)">Add answer</button>
+            <button type="button"
+                    ng-click="questionCtrl.addAnswer(question)"
+                    class="btn btn-warning btn-xs">
+                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
+            </button>
         </li>
     </ol>
-    <button ng-click="questionCtrl.addQuestion()">Add question</button>
+    <button ng-click="questionCtrl.addQuestion()"
+            class="btn btn-success btn-sm">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
+    </button>
 </div>

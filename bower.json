@@ -11,6 +11,7 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-xeditable": "~0.1.9",
+    "angular-bootstrap": "~1.1.2",
     "html5-boilerplate": "~5.2.0"
   }
 }

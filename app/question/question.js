@@ -53,10 +53,18 @@ angular.module('app.question', ['ngRoute'])
      });
    };
    this.addQuestion = function(){
-   console.log("Add question");
     this.questions.push({
         content: "Questions",
         answers: []
     });
+  };
+  this.removeAnswer = function(question, pos){
+     question.answers.splice(pos, 1);
+  };
+  this.moveUpAnswer = function(question, pos){
+    swapArrayElements(question.answers, pos, pos-1);
+  };
+  this.moveDownAnswer = function(question, pos){
+    swapArrayElements(question.answers, pos, pos+1);
   };
 }]);
