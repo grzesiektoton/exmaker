@@ -27,23 +27,6 @@ angular.module('app.question', ['ngRoute'])
                 correct: false
             }
         ]
-      },
-      {
-        content: "Questions 2",
-        answers: [
-            {
-                content: "answer 1",
-                correct: false
-            },
-            {
-                content: "answer 2",
-                correct: true
-            },
-            {
-                content: "answer 3",
-                correct: true
-            }
-        ]
       }
    ];
    this.addAnswer = function(question){

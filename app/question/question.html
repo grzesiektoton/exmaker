@@ -1,22 +1,38 @@
-<p>This is the partial for questions view.</p>
 <div ng-controller="QuestionCtrl as questionCtrl">
     <ol>
         <li ng-repeat="question in questionCtrl.questions">
           <span editable-textarea="question.content">{{question.content}}</span>
             <ol type="a">
                 <li ng-repeat="answer in question.answers">
-                    <span ng-click="questionCtrl.moveUpAnswer(question, $index)"
-                          class="glyphicon glyphicon-arrow-up"
-                          aria-hidden="true">
-                    </span>
-                    <span ng-click="questionCtrl.moveDownAnswer(question, $index)"
-                          class="glyphicon glyphicon-arrow-down"
-                          aria-hidden="true">
-                    </span>
-                    <span ng-click="questionCtrl.removeAnswer(question, $index)"
-                          class="glyphicon glyphicon-remove"
-                          aria-hidden="true">
-                    </span>
+                    <div uib-dropdown>
+                          <button class="btn btn-xs glyphicon glyphicon-list"
+                                  type="button"
+                                  id="dropdownMenu1"
+                                  uib-dropdown-toggle
+                                  aria-haspopup="true"
+                                  aria-expanded="true">
+                          </button>
+                          <ul uib-dropdown-menu aria-labelledby="dropdownMenu1">
+                            <li ng-show="!$first">
+                                <a ng-click="questionCtrl.moveUpAnswer(question, $index)"
+                                    class="glyphicon glyphicon-arrow-up"
+                                    aria-hidden="true">Move up
+                                </a>
+                            </li>
+                            <li ng-show="!$last">
+                                <a ng-click="questionCtrl.moveDownAnswer(question, $index)"
+                                    class="glyphicon glyphicon-arrow-down"
+                                    aria-hidden="true">Move down
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-click="questionCtrl.removeAnswer(question, $index)"
+                                    class="glyphicon glyphicon-remove"
+                                    aria-hidden="true">Delete
+                                </a>
+                            </li>
+                          </ul>
+                    </div>
                     <input type="checkbox" name="name" ng-model="answer.correct"/>
                     <label editable-text="answer.content">{{answer.content}}</label>
                 </li>
@@ -33,3 +49,15 @@
         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add
     </button>
 </div>
+    <div class="btn-group" uib-dropdown>
+      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Button dropdown <span class="caret"></span>
+      </button>
+      <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <li role="menuitem"><a href="#">Action</a></li>
+        <li role="menuitem"><a href="#">Another action</a></li>
+        <li role="menuitem"><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li role="menuitem"><a href="#">Separated link</a></li>
+      </ul>
+    </div>
